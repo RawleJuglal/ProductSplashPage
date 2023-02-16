@@ -1,103 +1,175 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+*, *::before, *::after{
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
   color: #404040;
+  margin:0;
 }
 
 /* =================
   Typography 
  ================= */
-
-h1 {
-  font-weight: 400;
+.beta-text, .subheading{
+  text-transform: uppercase;
+  font-weight:900;
 }
 
-.beta-text { 
-  font-weight: 900;
+h1 {
+  font-size:2.5rem;
+  font-weight: 400;
+  text-shadow: 0 2px #816fca;
+}
+
+h2{
+  font-size: 2.25rem;
+  margin:.17em 0;
+}
+
+p{
+  font-size: 1.125rem;
+  line-height: 1.35;
 }
 
 .subheading {
   color: #575757;
+  margin-bottom:.5em;
+}
+
+.intro, .main-content{
+  display:flex;
+  flex-direction: column;
+  padding:2.5em 2em 0;
+}
+
+.top-text {
+  order:-1;
+  font-size: 0.875rem;
   font-weight: 900;
+  padding-top: 0.25em;
+  border-top: 5px solid;
+  margin:0 auto;
+}
+
+.beta-text{
+  padding-bottom:1.5em;
+}
+
+.fine-print {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: #858585;
 }
 
 /* =================
   Intro
  ================= */
-
-/* 
-Challenge: Style the .intro section
-  - Convert into a flex container; 
-    display its content in a column
-  - Set a minimum height of 250px
-  - Center-align its content
-  - Vertically center the content
-  - Remove the space around the edges of the page
-*/
-
 .intro { 
   color: #fff;
-  background-color: #9480e4;
+  min-height:250px;
+  justify-content: space-between;
+  text-align: center;
+  background: #9480e4 url('/images/intro-bg.png');
+  background-repeat:no-repeat;
+  background-size:cover;
 }
 
 /* ====================
   Main content
  ==================== */
+.main-content{
+  align-items: center;
+  
+}
 
+.img-main{
+  width:120px;
+  border-radius:50%;
+}
 
+.main-content p,
+form {
+    max-width: 450px;
+}
 /* =================
   Form
  ================= */
- 
+  .btn,
+  input{
+    font-family: inherit;
+    font-size:16px;
+    border-radius:5px;
+    width:100%;
+  }
+
+  input{ 
+    margin-bottom:.75em;
+    padding:.5em;
+    border:2px solid #d1d5db;  
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #8a71ec;
+    background-color: #e6e8ec;
+}
+
+.btn{
+  
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 1px;
+  padding: 1em 0;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary{
+  background-color: #8a71ec;
+  color: white;
+  margin-top: 1em;
+}
+
+.btn-primary:hover,
+.btn-primary:focus{
+  background-color: #b7a7f6;
+}
 
 /* =================
   Media queries 
  ================= */
+
+ @media screen and (min-width:576px) {
+    #app{
+      display: flex;
+    }
+
+    .intro,
+    .main-content{
+      flex-basis:50%;
+      padding: 0 2em;
+    }
+
+    .intro{
+      min-height:100vh;
+    }
+
+    .main-content{
+      justify-content: center;
+      padding: 0 2em;
+    }
+
+
+    h1{
+      font-size: 5vw;
+  }
+  
+  h2{
+      font-size: 2.625rem;
+  }
+  
+  .beta-text{
+      font-size:1.25rem;
+  }
+ }
